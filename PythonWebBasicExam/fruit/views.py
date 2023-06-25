@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.generic import DetailView
 
 from PythonWebBasicExam.fruit.forms import FruitCreateForm, FruitEditForm, FruitDeleteForm
 
@@ -44,14 +45,20 @@ def create_fruit(request):
     return render(request, 'create-fruit.html', context)
 
 
-def details_fruit(request, id):
-    profile = ProfileModel.objects.first()
-    fruit = FruitModel.objects.get(id=id)
-    context = {
-        'profile': profile,
-        'fruit': fruit,
-    }
-    return render(request, 'details-fruit.html', context)
+# def details_fruit(request, id):
+#     profile = ProfileModel.objects.first()
+#     fruit = FruitModel.objects.get(id=id)
+#     context = {
+#         'profile': profile,
+#         'fruit': fruit,
+#     }
+#     return render(request, 'details-fruit.html', context)
+
+
+class FruitDetailsView(DetailView):
+    context_object_name = 'fruit'
+    template_name = 'details-fruit.html'
+    model = FruitModel
 
 
 def edit_fruit(request, id):

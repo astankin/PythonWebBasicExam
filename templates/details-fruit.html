@@ -25,8 +25,8 @@
 
                 <!--Edit and Delete buttons -->
                 <div id="action-buttons">
-                    <a href="{% url 'edit-fruit' fruit.id %}" id="edit-btn">Edit</a>
-                    <a href="{% url 'delete-fruit' fruit.id %}" id="delete-btn">Delete</a>
+                    <a href="{% url 'edit-fruit' pk=fruit.pk %}" id="edit-btn">Edit</a>
+                    <a href="{% url 'delete-fruit' pk=fruit.pk %}" id="delete-btn">Delete</a>
                 </div>
             </div>
         </div>
